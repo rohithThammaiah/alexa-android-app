@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Alexa Demo App</string>
+    <string name="microphone">Microphone</string>
+    <string name="logout">Logout</string>
+</resources>

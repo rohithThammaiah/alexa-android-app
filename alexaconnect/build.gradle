@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+
+ext {
+    PUBLISH_GROUP_ID = 'com.dnm.alexademoapp'
+    PUBLISH_ARTIFACT_ID = 'alexaconnect'
+    PUBLISH_VERSION = '1.0'
+}
+
+android {
+    lintOptions {
+        ignore 'InvalidPackage'
+    }
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'commons-fileupload:commons-fileupload:1.3.3'
+    implementation 'com.intellij:annotations:12.0@jar'
+    implementation 'commons-io:commons-io:2.5'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.apache.commons:commons-lang3:3.4'
+    implementation 'com.google.android.gms:play-services-base:16.1.0'
+    api 'com.squareup.okhttp3:okhttp:3.12.1'
+    api files ('login-with-amazon-sdk.jar')
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
